@@ -1,17 +1,61 @@
 {
-  "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "$schema": "https://turborepo.org/schema.json",
+  "experimentalUI": true,
+  "globalDependencies": [
+    "**/.env"
+  ],
   "pipeline": {
-    "build": {
-      "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**"]
+    "topo": {
+      "dependsOn": [
+        "^topo"
+      ]
     },
-    "lint": {
-      "dependsOn": ["^lint"]
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "next-env.d.ts",
+        ".expo/**",
+        ".output/**",
+        ".vercel/output/**"
+      ]
     },
     "dev": {
-      "cache": false,
-      "persistent": true
+      "persistent": true,
+      "cache": false
+    },
+    "format": {
+      "outputs": [
+        "node_modules/.cache/.prettiercache"
+      ],
+      "outputMode": "new-only"
+    },
+    "lint": {
+      "dependsOn": [
+        "^topo",
+        "^build"
+      ],
+      "outputs": [
+        "node_modules/.cache/.eslintcache"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": [
+        "^topo",
+        "^build"
+      ],
+      "outputs": [
+        "node_modules/.cache/tsbuildinfo.json"
+      ]
+    },
+    "clean": {
+      "cache": false
+    },
+    "//#clean": {
+      "cache": false
     }
   }
 }
