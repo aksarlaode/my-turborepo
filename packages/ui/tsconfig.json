@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/react-library.json",
+  "extends": "@aksar/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist"
   },
