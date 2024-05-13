@@ -11,11 +11,13 @@
     "typecheck": "turbo typecheck"
   },
   "devDependencies": {
-    "@aksar/eslint-config": "*",
-    "@aksar/typescript-config": "*",
+    "@aksar/prettier-config": "workspace:*",
+    "@turbo/gen": "^1.13.3",
     "prettier": "^3.2.5",
-    "turbo": "latest"
+    "turbo": "^1.13.3",
+    "typescript": "^5.4.5"
   },
+  "prettier": "@aksar/prettier-config",
   "engines": {
     "node": ">=20.12.0"
   },
@@ -24,8 +26,5 @@
     "apps/*",
     "packages/*",
     "tooling/*"
-  ],
-  "dependencies": {
-    "@turbo/gen": "^1.13.3"
-  }
+  ]
 }
