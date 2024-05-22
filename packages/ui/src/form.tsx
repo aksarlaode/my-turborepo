@@ -1,29 +1,51 @@
-import * as React from "react";
-import * as LabelPrimitive from "@radix-ui/react-label";
-import { Slot } from "@radix-ui/react-slot";
-import {
-  Controller,
+"use client";
+
+import type * as LabelPrimitive from "@radix-ui/react-label";
+import type {
   ControllerProps,
   FieldPath,
   FieldValues,
+  UseFormProps,
+} from "react-hook-form";
+import type { ZodType, ZodTypeDef } from "zod";
+import * as React from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Slot } from "@radix-ui/react-slot";
+import {
+  useForm as __useForm,
+  Controller,
   FormProvider,
   useFormContext,
 } from "react-hook-form";
-import { Label } from "src//label";
 
 import { cn } from "@aksar/ui";
 
-const Form = FormProvider;
+import { Label } from "./label";
 
-type FormFieldContextValue<
-  TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-> = {
-  name: TName;
+const useForm = <TOut, TDef extends ZodTypeDef, TIn extends FieldValues>(
+  props: Omit<UseFormProps<TIn>, "resolver"> & {
+    schema: ZodType<TOut, TDef, TIn>;
+  },
+) => {
+  const form = __useForm<TIn>({
+    ...props,
+    resolver: zodResolver(props.schema, undefined),
+  });
+
+  return form;
 };
 
-const FormFieldContext = React.createContext<FormFieldContextValue>(
-  {} as FormFieldContextValue,
+const Form = FormProvider;
+
+interface FormFieldContextValue<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+> {
+  name: TName;
+}
+
+const FormFieldContext = React.createContext<FormFieldContextValue | null>(
+  null,
 );
 
 const FormField = <
@@ -44,11 +66,10 @@ const useFormField = () => {
   const itemContext = React.useContext(FormItemContext);
   const { getFieldState, formState } = useFormContext();
 
-  const fieldState = getFieldState(fieldContext.name, formState);
-
   if (!fieldContext) {
     throw new Error("useFormField should be used within <FormField>");
   }
+  const fieldState = getFieldState(fieldContext.name, formState);
 
   const { id } = itemContext;
 
@@ -62,9 +83,9 @@ const useFormField = () => {
   };
 };
 
-type FormItemContextValue = {
+interface FormItemContextValue {
   id: string;
-};
+}
 
 const FormItemContext = React.createContext<FormItemContextValue>(
   {} as FormItemContextValue,
@@ -146,7 +167,7 @@ const FormMessage = React.forwardRef<
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, children, ...props }, ref) => {
   const { error, formMessageId } = useFormField();
-  const body = error ? String(error?.message) : children;
+  const body = error ? String(error.message) : children;
 
   if (!body) {
     return null;
@@ -166,6 +187,7 @@ const FormMessage = React.forwardRef<
 FormMessage.displayName = "FormMessage";
 
 export {
+  useForm,
   useFormField,
   Form,
   FormItem,
@@ -175,3 +197,5 @@ export {
   FormMessage,
   FormField,
 };
+
+export { useFieldArray } from "react-hook-form";
