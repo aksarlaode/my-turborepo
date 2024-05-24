@@ -6,4 +6,4 @@
 
 tasks:
   - init: npm i -g bun && bun i && bun run build
-    command: bun run start
+    command: npm i -g bun && bun run start
