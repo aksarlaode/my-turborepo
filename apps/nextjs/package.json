@@ -3,17 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "bun with-env next build",
+    "build": "pnpm with-env next build",
     "clean": "git clean -xdf .next .turbo node_modules",
-    "dev": "bun with-env next dev",
+    "dev": "pnpm with-env next dev",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
-    "start": "bun with-env next start",
+    "start": "pnpm with-env next start",
     "typecheck": "tsc --noEmit",
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@aksar/ui": "*",
+    "@aksar/ui": "workspace:*",
     "@blocknote/core": "^0.13.4",
     "@blocknote/react": "^0.13.4",
     "@blocknote/shadcn": "^0.13.4",
@@ -30,10 +30,10 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@aksar/eslint-config": "*",
-    "@aksar/prettier-config": "*",
-    "@aksar/tailwind-config": "*",
-    "@aksar/tsconfig": "*",
+    "@aksar/eslint-config": "workspace:*",
+    "@aksar/prettier-config": "workspace:*",
+    "@aksar/tailwind-config": "workspace:*",
+    "@aksar/tsconfig": "workspace:*",
     "@types/node": "^20.12.9",
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",

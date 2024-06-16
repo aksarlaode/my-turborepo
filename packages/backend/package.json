@@ -14,9 +14,9 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@aksar/eslint-config": "*",
-    "@aksar/prettier-config": "*",
-    "@aksar/tsconfig": "*",
+    "@aksar/eslint-config": "workspace:*",
+    "@aksar/prettier-config": "workspace:*",
+    "@aksar/tsconfig": "workspace:*",
     "eslint": "^9.2.0",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5"
