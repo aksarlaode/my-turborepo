@@ -20,7 +20,7 @@
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
-        bun-install = "pnpm install";
+        pnpm-install = "pnpm install";
       };
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };

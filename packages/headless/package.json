@@ -1,0 +1,63 @@
+{
+  "name": "@aksar/headless",
+  "version": "0.1.0",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./*": [
+      "./src/*.tsx",
+      "./src/*.ts"
+    ]
+  },
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "@tiptap/core": "^2.1.7",
+    "@tiptap/extension-character-count": "^2.3.0",
+    "@tiptap/extension-code-block-lowlight": "^2.2.6",
+    "@tiptap/extension-color": "^2.1.7",
+    "@tiptap/extension-highlight": "^2.1.7",
+    "@tiptap/extension-horizontal-rule": "^2.1.7",
+    "@tiptap/extension-image": "^2.1.7",
+    "@tiptap/extension-link": "^2.1.7",
+    "@tiptap/extension-placeholder": "2.0.3",
+    "@tiptap/extension-task-item": "^2.1.7",
+    "@tiptap/extension-task-list": "^2.1.7",
+    "@tiptap/extension-text-style": "^2.1.7",
+    "@tiptap/extension-underline": "^2.1.7",
+    "@tiptap/extension-youtube": "^2.4.0",
+    "@tiptap/pm": "^2.1.7",
+    "@tiptap/react": "^2.1.7",
+    "@tiptap/starter-kit": "^2.1.7",
+    "@tiptap/suggestion": "^2.1.7",
+    "@types/node": "18.15.3",
+    "cmdk": "^0.2.1",
+    "jotai": "^2.6.4",
+    "react-markdown": "^8.0.7",
+    "react-moveable": "^0.56.0",
+    "tippy.js": "^6.3.7",
+    "tiptap-extension-global-drag-handle": "^0.1.7",
+    "tiptap-markdown": "^0.8.9",
+    "tunnel-rat": "^0.1.2"
+  },
+  "devDependencies": {
+    "@aksar/eslint-config": "workspace:*",
+    "@aksar/prettier-config": "workspace:*",
+    "@aksar/tsconfig": "workspace:*",
+    "@types/react": "^18.3.2",
+    "eslint": "^9.2.0",
+    "prettier": "^3.2.5",
+    "react": "18.3.1",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "prettier": "@aksar/prettier-config"
+}
