@@ -36,7 +36,7 @@
     "@tiptap/react": "^2.1.7",
     "@tiptap/starter-kit": "^2.1.7",
     "@tiptap/suggestion": "^2.1.7",
-    "@types/node": "18.15.3",
+    "@types/node": "20.14.9",
     "cmdk": "^0.2.1",
     "jotai": "^2.6.4",
     "react-markdown": "^8.0.7",
