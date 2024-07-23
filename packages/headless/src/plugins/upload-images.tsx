@@ -13,6 +13,7 @@ export const UploadImagesPlugin = ({ imageClass }: { imageClass: string }) =>
       apply(tr, set) {
         set = set.map(tr.mapping, tr.doc);
         // See if the transaction adds or removes any placeholders
+        //@ts-expect-error - not yet sure what the type I need here
         const action = tr.getMeta(this);
         if (action?.add) {
           const { id, pos, src } = action.add;
@@ -28,6 +29,7 @@ export const UploadImagesPlugin = ({ imageClass }: { imageClass: string }) =>
           });
           set = set.add(tr.doc, [deco]);
         } else if (action?.remove) {
+          // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
           set = set.remove(set.find(undefined, undefined, (spec) => spec.id == action.remove.id));
         }
         return set;
@@ -40,8 +42,10 @@ export const UploadImagesPlugin = ({ imageClass }: { imageClass: string }) =>
     },
   });
 
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
 function findPlaceholder(state: EditorState, id: {}) {
   const decos = uploadKey.getState(state) as DecorationSet;
+  // biome-ignore lint/suspicious/noDoubleEquals: <explanation>
   const found = decos.find(undefined, undefined, (spec) => spec.id == id);
   return found.length ? found[0]?.from : null;
 }
@@ -56,7 +60,6 @@ export const createImageUpload =
   (file, view, pos) => {
     // check if the file is an image
     const validated = validateFn?.(file);
-    // @ts-ignore
     if (!validated) return;
     // A fresh object to act as the ID for this upload
     const id = {};

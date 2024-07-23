@@ -1,81 +1,104 @@
-# Turborepo starter
+<a href="https://novel.sh">
+  <img alt="Novel is a Notion-style WYSIWYG editor with AI-powered autocompletions." src="https://novel.sh/opengraph-image.png">
+  <h1 align="center">Novel</h1>
+</a>
 
-This is an official starter Turborepo.
+<p align="center">
+  An open-source Notion-style WYSIWYG editor with AI-powered autocompletions. 
+</p>
 
-## Using this example
+<p align="center">
+  <a href="https://news.ycombinator.com/item?id=36360789"><img src="https://img.shields.io/badge/Hacker%20News-369-%23FF6600" alt="Hacker News"></a>
+  <a href="https://github.com/steven-tey/novel/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/steven-tey/novel?label=license&logo=github&color=f80&logoColor=fff" alt="License" />
+  </a>
+  <a href="https://github.com/steven-tey/novel"><img src="https://img.shields.io/github/stars/steven-tey/novel?style=social" alt="Novel.sh's GitHub repo"></a>
+</p>
 
-Run the following command:
+<p align="center">
+  <a href="#introduction"><strong>Introduction</strong></a> ·
+  <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
+  <a href="#setting-up-locally"><strong>Setting Up Locally</strong></a> ·
+  <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
+  <a href="#contributing"><strong>Contributing</strong></a> ·
+  <a href="#license"><strong>License</strong></a>
+</p>
+<br/>
 
-```sh
-npx create-turbo@latest
+## Docs (WIP)
+
+https://novel.sh/docs/introduction
+
+## Introduction
+
+[Novel](https://novel.sh/) is a Notion-style WYSIWYG editor with AI-powered autocompletions.
+
+https://github.com/steven-tey/novel/assets/28986134/2099877f-4f2b-4b1c-8782-5d803d63be5c
+
+<br />
+
+## Deploy Your Own
+
+You can deploy your own version of Novel to Vercel with one click:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://stey.me/novel-deploy)
+
+## Setting Up Locally
+
+To set up Novel locally, you'll need to clone the repository and set up the following environment variables:
+
+- `OPENAI_API_KEY` – your OpenAI API key (you can get one [here](https://platform.openai.com/account/api-keys))
+- `BLOB_READ_WRITE_TOKEN` – your Vercel Blob read/write token (currently [still in beta](https://vercel.com/docs/storage/vercel-blob/quickstart#quickstart), but feel free to [sign up on this form](https://vercel.fyi/blob-beta) for access)
+
+If you've deployed this to Vercel, you can also use [`vc env pull`](https://vercel.com/docs/cli/env#exporting-development-environment-variables) to pull the environment variables from your Vercel project.
+
+To run the app locally, you can run the following commands:
+
 ```
-
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@aksar/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@aksar/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@aksar/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
+pnpm i
 pnpm dev
 ```
 
-### Remote Caching
+## Cross-framework support
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+While Novel is built for React, we also have a few community-maintained packages for non-React frameworks:
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+- Svelte: https://novel.sh/svelte
+- Vue: https://novel.sh/vue
 
-```
-cd my-turborepo
-npx turbo login
-```
+## VSCode Extension
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+Thanks to @bennykok, Novel also has a VSCode Extension: https://novel.sh/vscode
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+https://github.com/steven-tey/novel/assets/28986134/58ebf7e3-cdb3-43df-878b-119e304f7373
 
-```
-npx turbo link
-```
+## Tech Stack
 
-## Useful Links
+Novel is built on the following stack:
 
-Learn more about the power of Turborepo:
+- [Next.js](https://nextjs.org/) – framework
+- [Tiptap](https://tiptap.dev/) – text editor
+- [OpenAI](https://openai.com/) - AI completions
+- [Vercel AI SDK](https://sdk.vercel.ai/docs) – AI library
+- [Vercel](https://vercel.com) – deployments
+- [TailwindCSS](https://tailwindcss.com/) – styles
+- [Cal Sans](https://github.com/calcom/font) – font
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+## Contributing
+
+Here's how you can contribute:
+
+- [Open an issue](https://github.com/steven-tey/novel/issues) if you believe you've encountered a bug.
+- Make a [pull request](https://github.com/steven-tey/novel/pull) to add new features/make quality-of-life improvements/fix bugs.
+
+<a href="https://github.com/steven-tey/novel/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=steven-tey/novel" />
+</a>
+
+## Repo Activity
+
+![Novel.sh repo activity – generated by Axiom](https://repobeats.axiom.co/api/embed/2ebdaa143b0ad6e7c2ee23151da7b37f67da0b36.svg)
+
+## License
+
+Licensed under the [Apache-2.0 license](https://github.com/steven-tey/novel/blob/main/LICENSE).

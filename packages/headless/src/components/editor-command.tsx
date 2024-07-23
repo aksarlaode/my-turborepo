@@ -16,7 +16,6 @@ interface EditorCommandOutProps {
 
 export const EditorCommandOut: FC<EditorCommandOutProps> = ({ query, range }) => {
   const setQuery = useSetAtom(queryAtom, { store: novelStore });
-  // @ts-ignore
   const setRange = useSetAtom(rangeAtom, { store: novelStore });
 
   useEffect(() => {
