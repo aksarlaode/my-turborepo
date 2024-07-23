@@ -17,7 +17,7 @@
     "@aksar/eslint-config": "workspace:*",
     "@aksar/prettier-config": "workspace:*",
     "@aksar/tsconfig": "workspace:*",
-    "eslint": "^9.2.0",
+    "eslint": "^9.7.0",
     "prettier": "^3.2.5",
     "typescript": "^5.4.5"
   },
