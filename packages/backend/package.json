@@ -24,6 +24,6 @@
   "prettier": "@aksar/prettier-config",
   "dependencies": {
     "convex": "^1.11.3",
-    "@clerk/nextjs": "^5.0.8"
+    "@clerk/nextjs": "^5.2.4"
   }
 }
