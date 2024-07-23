@@ -20,7 +20,7 @@
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
       onCreate = {
-        pnpm-install = "pnpm install";
+        bun-install = "bun install";
       };
       # To run something each time the workspace is (re)started, use the `onStart` hook
     };
@@ -29,7 +29,7 @@
       enable = true;
       previews = {
         web = {
-          command = ["pnpm" "run" "dev:next" "--" "--port" "$PORT" "--hostname" "0.0.0.0"];
+          command = ["bun" "run" "dev:next" "--" "--port" "$PORT" "--hostname" "0.0.0.0"];
           manager = "web";
         };
       };

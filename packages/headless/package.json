@@ -1,13 +1,12 @@
 {
-  "name": "@aksar/headless",
+  "name": "@aksar/editor",
   "version": "0.1.0",
   "private": true,
   "exports": {
-    ".": "./src/index.ts",
-    "./*": [
-      "./src/*.tsx",
-      "./src/*.ts"
-    ]
+    ".": "./src/components/index.ts",
+    "./extensions": "./src/extensions/index.ts",
+    "./plugins": "./src/plugins/index.ts",
+    "./utils": "./src/utils/index.ts"
   },
   "license": "MIT",
   "scripts": {
@@ -36,8 +35,7 @@
     "@tiptap/react": "^2.1.7",
     "@tiptap/starter-kit": "^2.1.7",
     "@tiptap/suggestion": "^2.1.7",
-    "@types/node": "18.15.3",
-    "cmdk": "^0.2.1",
+    "cmdk": "^1.0.0",
     "jotai": "^2.6.4",
     "react-markdown": "^8.0.7",
     "react-moveable": "^0.56.0",
@@ -50,6 +48,7 @@
     "@aksar/eslint-config": "workspace:*",
     "@aksar/prettier-config": "workspace:*",
     "@aksar/tsconfig": "workspace:*",
+    "@types/node": "^20.12.9",
     "@types/react": "^18.3.2",
     "eslint": "^9.2.0",
     "prettier": "^3.2.5",
