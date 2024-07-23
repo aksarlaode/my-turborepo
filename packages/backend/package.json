@@ -23,7 +23,7 @@
   },
   "prettier": "@aksar/prettier-config",
   "dependencies": {
-    "convex": "^1.11.3",
+    "convex": "^1.13.2",
     "@clerk/nextjs": "^5.0.8"
   }
 }
