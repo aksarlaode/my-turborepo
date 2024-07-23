@@ -48,7 +48,7 @@
     "@aksar/eslint-config": "workspace:*",
     "@aksar/prettier-config": "workspace:*",
     "@aksar/tsconfig": "workspace:*",
-    "@types/node": "^20.12.9",
+    "@types/node": "^20.14.11",
     "@types/react": "^18.3.2",
     "eslint": "^9.2.0",
     "prettier": "^3.2.5",
